@@ -3,17 +3,19 @@ import './App.css';
 import AddTodo from './components/addTodo'
 import TodoList from './components/todoList'
 import VisibilityFilter from './components/visiblityFilter'
-
-const filters = ['all', 'completed', 'incomplete']
+import {Provider} from 'react-redux'
+import store from './redux/store'
 
 function App() {
   return (
+    <Provider store={store}>
     <div className="App">
-      <h1>TODO List</h1>
+      <h1>TO-DO List</h1>
       <AddTodo/>
-      <TodoList todos={[{content: 'Task 1'}, {content: 'Task 2'}]}/>
-      <VisibilityFilter filters={filters}/>
+      <TodoList/>
+      <VisibilityFilter/>
     </div>
+    </Provider>
   );
 }
 

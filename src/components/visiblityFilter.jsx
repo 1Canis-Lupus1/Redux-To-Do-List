@@ -1,9 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { setFilter } from '../redux/actions'
+import { Filters } from '../redux/actionTypes'
 
-function VisibilityFilter({ filters }) {
+function VisibilityFilter({ activeFilter, setFilter }) {
     return (
-        filters.map((filter,i) => <button key={`filter-${i}`}>{filter}</button>)
+        Filters.map((filter, i) => (
+            <button
+                className={filter === activeFilter ? 'active' : ''}
+                onClick={() => setFilter(filter)}
+                key={`filter-${i}`}>
+                {filter}
+            </button>
+        ))
     )
 }
 
-export default VisibilityFilter;
+const mapState = (state) => ({ activeFilter: state.visibilityFilter.activeFilter })
+export default connect(mapState, { setFilter })(VisibilityFilter)
