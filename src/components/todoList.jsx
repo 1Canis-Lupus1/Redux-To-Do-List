@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {_} from 'underscore'
+import * as _ from 'underscore'
 import { FILTER_ALL, FILTER_COMPLETED } from '../redux/actionTypes'
 import { toggleTodo } from '../redux/actions'
 
